@@ -45,3 +45,18 @@ html, body
  color: #FFFFFF;
  position: absolute;
  }
+
+.inputValues{
+
+display: inline-block;
+text-align: center;
+}
+
+.inputHeaders{
+float:left;
+
+}
+
+input{
+ margin-left:5px;
+}
