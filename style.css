@@ -1,1 +1,47 @@
+html, body
+{
+   background-color: orange;
 
+
+}
+ #header_1 { 
+ background-color: blue;
+ width: 1000px;
+ height: 100px;
+ text-align: center;
+ color: #FFFFFF;
+  }
+  #menu1 {
+ background-color: white;
+ top:100px;
+ width: 1000px;
+ height: 30px;
+ color: #FFFFFF;
+ text-align: center;
+ }
+   #content_bg {
+ background-color: grey;
+ top:100px;
+ left: 90px;
+ width: 1000px;
+ height: 3000px;
+ color: #FFFFFF;
+ }
+  #search {
+ background-color: red;
+ top:115px;
+ left: 700px;
+ width: 250px;
+ height: 30px;
+ color: #FFFFFF;
+ position: absolute;
+ }
+ #category {
+ background-color: red;
+ top:150px;
+ left: 905px;
+ width: 100px;
+ height: 500px;
+ color: #FFFFFF;
+ position: absolute;
+ }
