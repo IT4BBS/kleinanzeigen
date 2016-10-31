@@ -1,0 +1,103 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema bbs_kleinanzeigen
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema bbs_kleinanzeigen
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `bbs_kleinanzeigen` DEFAULT CHARACTER SET utf8 ;
+USE `bbs_kleinanzeigen` ;
+
+-- -----------------------------------------------------
+-- Table `bbs_kleinanzeigen`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bbs_kleinanzeigen`.`user` (
+  `guid` VARCHAR(36) NOT NULL,
+  `nickname` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(128) NOT NULL,
+  `isAdmin` TINYINT NOT NULL DEFAULT 0,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` TIMESTAMP NULL,
+  PRIMARY KEY (`guid`),
+  UNIQUE INDEX `GUID_UNIQUE` (`guid` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bbs_kleinanzeigen`.`adverts`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bbs_kleinanzeigen`.`adverts` (
+  `guid` VARCHAR(36) NOT NULL,
+  `user_guid` VARCHAR(36) NOT NULL,
+  `title` VARCHAR(256) NOT NULL,
+  `text` VARCHAR(2048) NULL,
+  `price(10,2)` DECIMAL NOT NULL,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` TIMESTAMP NULL,
+  `picture_main` VARCHAR(256) NULL,
+  `picture_1` VARCHAR(256) NULL,
+  `picture_2` VARCHAR(256) NULL,
+  `picture_3` VARCHAR(256) NULL,
+  `picture_4` VARCHAR(256) NULL,
+  `asking price` BIT(1) NULL DEFAULT 0,
+  `ended` TINYINT(1) NULL DEFAULT 0,
+  `end_date` TIMESTAMP NULL,
+  `advertscol` VARCHAR(45) NULL,
+  PRIMARY KEY (`guid`),
+  INDEX `fk_adverts_user_idx` (`user_guid` ASC),
+  UNIQUE INDEX `guid_UNIQUE` (`guid` ASC),
+  CONSTRAINT `fk_adverts_user`
+    FOREIGN KEY (`user_guid`)
+    REFERENCES `bbs_kleinanzeigen`.`user` (`guid`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bbs_kleinanzeigen`.`categories`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bbs_kleinanzeigen`.`categories` (
+  `guid` VARCHAR(36) NOT NULL,
+  `title` VARCHAR(128) NOT NULL,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` TIMESTAMP NULL,
+  PRIMARY KEY (`guid`),
+  UNIQUE INDEX `guid_UNIQUE` (`guid` ASC),
+  UNIQUE INDEX `title_UNIQUE` (`title` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bbs_kleinanzeigen`.`advert_config`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bbs_kleinanzeigen`.`advert_config` (
+  `guid` VARCHAR(36) NOT NULL,
+  `adverts_guid` VARCHAR(36) NOT NULL,
+  `categories_guid` VARCHAR(36) NOT NULL,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` TIMESTAMP NULL,
+  PRIMARY KEY (`guid`),
+  INDEX `fk_advert_config_adverts1_idx` (`adverts_guid` ASC),
+  INDEX `fk_advert_config_categories1_idx` (`categories_guid` ASC),
+  CONSTRAINT `fk_advert_config_adverts1`
+    FOREIGN KEY (`adverts_guid`)
+    REFERENCES `bbs_kleinanzeigen`.`adverts` (`guid`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_advert_config_categories1`
+    FOREIGN KEY (`categories_guid`)
+    REFERENCES `bbs_kleinanzeigen`.`categories` (`guid`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
