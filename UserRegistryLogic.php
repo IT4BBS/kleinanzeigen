@@ -15,11 +15,12 @@
 
     //in Datenbank speichern
     $servername = "localhost";
-    $username = "username";
-    $password = "password";
+    $username = "root";
+    $password = "";
+    $dbname = "bbs_kleinanzeigen";
 
     //db Verbindung herstellen
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
     //Verbindung prüfen
     if ($conn->connect_error) 
