@@ -1,3 +1,5 @@
+-- MySQL Workbench Forward Engineering
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -20,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `bbs_kleinanzeigen`.`user` (
   `nickname` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `email` VARCHAR(128) NOT NULL,
-  `isAdmin` TINYINT NOT NULL DEFAULT 0,
+  `isAdmin` TINYINT(1) NOT NULL DEFAULT 0,
   `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` TIMESTAMP NULL,
   PRIMARY KEY (`guid`),
@@ -36,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `bbs_kleinanzeigen`.`adverts` (
   `user_guid` VARCHAR(36) NOT NULL,
   `title` VARCHAR(256) NOT NULL,
   `text` VARCHAR(2048) NULL,
-  `price(10,2)` DECIMAL NOT NULL,
+  `price` DECIMAL(10,2) NOT NULL,
   `created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` TIMESTAMP NULL,
   `picture_main` VARCHAR(256) NULL,
@@ -44,10 +46,9 @@ CREATE TABLE IF NOT EXISTS `bbs_kleinanzeigen`.`adverts` (
   `picture_2` VARCHAR(256) NULL,
   `picture_3` VARCHAR(256) NULL,
   `picture_4` VARCHAR(256) NULL,
-  `asking price` BIT(1) NULL DEFAULT 0,
+  `asking price` TINYINT(1) NULL DEFAULT 0,
   `ended` TINYINT(1) NULL DEFAULT 0,
   `end_date` TIMESTAMP NULL,
-  `advertscol` VARCHAR(45) NULL,
   PRIMARY KEY (`guid`),
   INDEX `fk_adverts_user_idx` (`user_guid` ASC),
   UNIQUE INDEX `guid_UNIQUE` (`guid` ASC),
