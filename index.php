@@ -19,7 +19,7 @@
    </div>
      <div id="menu1">
        <a href="#">Home</a>            &nbsp;&nbsp;
-       <a href="#">Registrieren</a>    &nbsp;&nbsp;
+       <a href="UserRegistry.html">Registrieren</a>    &nbsp;&nbsp;
        <a href="#">Hilfe</a>           &nbsp;&nbsp;
    </div>
     <div id="content_bg">
