@@ -11,6 +11,19 @@
     <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)" />
 
     <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="inputBox.css" type="text/css" rel="stylesheet" />
+
+       <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }   
+    </script>
 </head>
 
 <body>
@@ -45,5 +58,41 @@
        <a href="/kategorie/dvd">Filme und DVD</a> <br />
        <a href="/kategorie/kamera">Kameras</a> <br />
    </div>
+    
+    <!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"class="close" title="Close Modal">&times;</span>
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="UserRegistryLogic.php">
+    <div class="imgcontainer">
+      <!--<img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+      <!--Platz für ein Bild-->
+    </div>
+
+    <div class="container">
+      <label><b>Benutzername</b></label>
+      <input type="text" placeholder="Benutzername eingeben" name="nickName" required>
+
+      <label><b>E-Mail</b></label>
+      <input type="text" placeholder="E-Mail Adresse eingeben" name="mail" required>
+
+      <label><b>Passwort</b></label>
+      <input type="password" placeholder="Passwort eingeben" name="password" required>
+
+      <label><b>Passwort wiederholen</b></label>
+      <input type="password" placeholder="Passwort wiederholen" name="passwordReply" required>
+
+
+      <button type="submit">Login</button>
+     
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+    
 </body>
 </html>
