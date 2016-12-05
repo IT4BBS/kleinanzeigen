@@ -5,7 +5,7 @@
     <title>BBS Kleinanzeigen</title>
 
     <link href="http://www.bbs-ohz.de/favicon.ico" rel="shortcut icon"/>
-    
+
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -26,6 +26,7 @@
             }
         }   
     </script>
+
 </head>
 
 <body>
@@ -33,8 +34,8 @@
        <h1>BBS Kleinanzeigen</h1>
    </div>
      <div id="menu1">
-       <a href="#">Home</a>            &nbsp;&nbsp;
-       <a href="UserRegistry.html">Registrieren</a>    &nbsp;&nbsp;
+       <a href="#">Home</a>
+        <a href="#"onclick="document.getElementById('id01').style.display='block'">Login</a>
        <a href="#">Hilfe</a>           &nbsp;&nbsp;
    </div>
     <div id="content_bg">
@@ -60,8 +61,11 @@
        <a href="/kategorie/dvd">Filme und DVD</a> <br />
        <a href="/kategorie/kamera">Kameras</a> <br />
    </div>
-    
-    <!-- The Modal -->
+
+ <!-- Button to open the modal login form -->
+
+
+<!-- The Modal -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"class="close" title="Close Modal">&times;</span>
   <!-- Modal Content -->
@@ -94,6 +98,6 @@
     </div>
   </form>
 </div>
-    
+
 </body>
 </html>
