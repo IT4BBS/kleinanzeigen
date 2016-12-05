@@ -10,8 +10,8 @@
     <meta name="keywords" content="" />
     <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)" />
 
-    <link href="CSS/style.css" type="text/css" rel="stylesheet" />
-    <link href="CSS/inputBox.css" type="text/css" rel="stylesheet" />
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <link href="inputBox.css" type="text/css" rel="stylesheet" />
 
        <script>
         // Get the modal
