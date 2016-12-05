@@ -1,4 +1,7 @@
 <?php
+
+    include 'Configuration.php';
+
     //prüfe post Daten
     if(isset($_POST['nickName']) && isset($_POST['password']) && isset($_POST['passwordReply']) && isset($_POST['mail']))
     {
@@ -12,13 +15,7 @@
         echo 'All fields required';
 
     }
-
-    //in Datenbank speichern
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "bbs_kleinanzeigen";
-
+    
     //db Verbindung herstellen
     $conn = new mysqli($servername, $username, $password, $dbname);
 
