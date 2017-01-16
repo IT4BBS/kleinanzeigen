@@ -26,6 +26,7 @@ html, body
  width: 1000px;
  height: 3000px;
  color: #FFFFFF;
+ text-align: center;
  }
   #search {
  background-color: red;
@@ -60,3 +61,18 @@ float:left;
 input{
  margin-left:5px;
 }
+
+   #article1 {
+ top:200px;
+ left: 20px;
+ width: 200px;
+ height: 200px;
+ color: #FFFFFF;
+ border-style: solid;
+ border-width: medium;
+ border-color: #FF0000;
+ position: absolute;
+ text-align: center;
+  
+  
+ }
