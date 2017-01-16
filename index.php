@@ -39,7 +39,13 @@
        <a href="#">Hilfe</a>           &nbsp;&nbsp;
    </div>
     <div id="content_bg">
-       
+         
+   </div>
+    <div id="article1">
+          <h3>PS4 f&uuml;r 299&euro;</h3> 
+          <img src="ps4.jpg" alt="ps4">
+        <a href="artikel.hmtl"> <img src="zumangebot.png" alt="ps4"> </a>
+          
    </div>
    <div id="search">
         <form>
